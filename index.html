@@ -1,431 +1,218 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Canela Store - Celulares a Crédito con PayJoy</title>
-  <!-- Tailwind CSS via CDN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Canela Store - Servicio Técnico & Crédito</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandDark: '#0a1526',      // Azul Marino Oscuro Fondo Logo
-            brandBlue: '#004080',      // Azul Principal
-            brandLightBlue: '#00a8e8', // Celeste del Esfera
-            brandGold: '#c5a059',      // Dorado Borde/Letras
-            brandGoldDark: '#9e7b39',  // Dorado Oscuro
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <style>
     body {
-      background-color: #070d19;
+      background-color: #0b0f19;
       color: #e2e8f0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
-    .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(197, 160, 89, 0.2);
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
     }
-    .glass-card:hover {
-      border-color: rgba(197, 160, 89, 0.6);
-      box-shadow: 0 10px 30px -10px rgba(0, 168, 232, 0.3);
-    }
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #f3e7e8 0%, #c5a059 50%, #e6ca65 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .gold-button {
-      background: linear-gradient(135deg, #c5a059 0%, #9e7b39 100%);
-    }
-    .gold-button:hover {
-      background: linear-gradient(135deg, #d4b16a 0%, #b08c4a 100%);
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
-<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-[#0b0f19] text-gray-100 min-h-screen flex flex-col antialiased">
 
-  <!-- TOP HEADER -->
-  <header class="sticky top-0 z-40 bg-brandDark/90 backdrop-blur-md border-b border-brandGold/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-      <!-- LOGO -->
-      <div class="flex items-center space-x-3">
-        <div class="w-12 h-12 rounded-full border-2 border-brandGold flex items-center justify-center bg-brandDark shadow-lg overflow-hidden">
-          <span class="text-brandGold font-bold text-xl tracking-wider">STC</span>
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur border-b border-gray-800 px-4 py-3">
+    <div class="w-full flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full border-2 border-amber-500/80 flex items-center justify-center bg-black/40">
+          <span class="text-amber-500 font-bold text-xs tracking-wider">STC</span>
         </div>
         <div>
-          <h1 class="text-xl font-extrabold tracking-wider text-white uppercase flex items-center gap-1">
-            CANELA <span class="gold-gradient-text">STORE</span>
-          </h1>
-          <p class="text-xs text-brandLightBlue font-medium tracking-widest">SERVICIO TÉCNICO & CRÉDITO</p>
+          <h1 class="font-bold text-amber-500 text-base leading-tight uppercase tracking-wider">Canela Store</h1>
+          <p class="text-[10px] text-blue-400 font-medium tracking-tight">SERVICIO TÉCNICO & CRÉDITO</p>
         </div>
       </div>
-
-      <!-- WHATSAPP FAST CONTACT -->
-      <a href="https://wa.me/573105382013" target="_blank" class="hidden sm:flex items-center space-x-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded-full text-sm transition-all shadow-lg hover:scale-105">
-        <i class="fab fa-whatsapp text-lg"></i>
-        <span>WhatsApp: 3157044653</span>
-      </a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative bg-gradient-to-b from-brandDark via-[#0c1b33] to-[#070d19] py-12 px-4 text-center border-b border-brandGold/20">
-    <div class="max-w-4xl mx-auto">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-brandGold/10 text-brandGold border border-brandGold/30 mb-4">
-        ✨ Estrena Hoy Fácil y Rápido
-      </span>
-      <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight mb-4">
-        Financia tu celular <span class="gold-gradient-text">Solo con tu Cédula</span> a través de PayJoy
+  <!-- Main Container -->
+  <main class="w-full flex-1 px-3 py-4 space-y-4 max-w-md mx-auto">
+
+    <!-- Hero / Banner PayJoy -->
+    <section class="w-full bg-gradient-to-b from-[#111827] to-[#0f172a] border border-gray-800/80 rounded-2xl p-4 shadow-lg text-center relative overflow-hidden">
+      <div class="inline-block bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1 mb-3">
+        <span class="text-amber-400 text-xs font-semibold">✨ ESTRENA HOY FÁCIL Y RÁPIDO</span>
+      </div>
+      
+      <h2 class="text-xl font-extrabold text-white leading-tight mb-2">
+        Financia tu celular <br/>
+        <span class="text-amber-400">Solo con tu Cédula</span> a través de <span class="text-blue-400">PayJoy</span>
       </h2>
-      <p class="text-gray-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+      
+      <p class="text-xs text-gray-400 mb-4 px-1 leading-relaxed">
         Sin estudio de crédito complicado, sin papeleos. Elige tu celular favorito, realiza una mínima cuota inicial y llévatelo hoy mismo.
       </p>
 
-      <!-- REQUISITOS RAPIDOS -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left max-w-3xl mx-auto mb-6">
-        <div class="bg-brandDark/80 p-4 rounded-xl border border-brandGold/20 flex items-center space-x-3">
-          <i class="fa-solid fa-id-card text-brandGold text-2xl"></i>
+      <!-- Requisitos Cards -->
+      <div class="space-y-2 text-left">
+        <div class="bg-[#1e293b]/60 border border-gray-800 p-2.5 rounded-xl flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 text-sm">
+            <i class="fa-solid fa-address-card"></i>
+          </div>
           <div>
-            <h4 class="text-sm font-bold text-white">Cédula Física</h4>
-            <p class="text-xs text-gray-400">Original de ciudadanía</p>
+            <h3 class="text-xs font-bold text-gray-200">Cédula Física</h3>
+            <p class="text-[11px] text-gray-400">Original de ciudadanía</p>
           </div>
         </div>
-        <div class="bg-brandDark/80 p-4 rounded-xl border border-brandGold/20 flex items-center space-x-3">
-          <i class="fa-brands fa-google text-brandLightBlue text-2xl"></i>
+
+        <div class="bg-[#1e293b]/60 border border-gray-800 p-2.5 rounded-xl flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 text-sm">
+            <i class="fa-brands fa-google"></i>
+          </div>
           <div>
-            <h4 class="text-sm font-bold text-white">Cuenta Gmail</h4>
-            <p class="text-xs text-gray-400">Activa en tu dispositivo</p>
+            <h3 class="text-xs font-bold text-gray-200">Cuenta Gmail</h3>
+            <p class="text-[11px] text-gray-400">Activa en tu dispositivo</p>
           </div>
         </div>
-        <div class="bg-brandDark/80 p-4 rounded-xl border border-brandGold/20 flex items-center space-x-3">
-          <i class="fa-solid fa-money-bill-wave text-green-400 text-2xl"></i>
+
+        <div class="bg-[#1e293b]/60 border border-gray-800 p-2.5 rounded-xl flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 text-sm">
+            <i class="fa-solid fa-money-bill-wave"></i>
+          </div>
           <div>
-            <h4 class="text-sm font-bold text-white">Cuota Inicial</h4>
-            <p class="text-xs text-gray-400">Entrega de inmediato</p>
+            <h3 class="text-xs font-bold text-gray-200">Cuota Inicial</h3>
+            <p class="text-[11px] text-gray-400">Entrega de inmediato</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FILTROS Y BUSCADOR DE PRODUCTOS -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-      <!-- MARCAS BAR -->
-      <div id="brand-filters" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-        <button onclick="filterBrand('TODOS')" class="brand-btn active px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandGold text-brandDark transition-all">
-          Todos los Celulares
-        </button>
-        <button onclick="filterBrand('SAMSUNG')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Samsung
-        </button>
-        <button onclick="filterBrand('MOTOROLA')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Motorola
-        </button>
-        <button onclick="filterBrand('XIAOMI')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Xiaomi / Redmi
-        </button>
-        <button onclick="filterBrand('HONOR')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Honor
-        </button>
-        <button onclick="filterBrand('TECNO')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Tecno
-        </button>
-        <button onclick="filterBrand('INFINIX')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          Infinix
-        </button>
-        <button onclick="filterBrand('TCL')" class="brand-btn px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap bg-brandDark text-gray-300 border border-brandGold/30 hover:border-brandGold transition-all">
-          TCL
-        </button>
-      </div>
-
-      <!-- SEARCH INPUT -->
-      <div class="relative w-full md:w-72">
-        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Buscar equipo (ej. A17, Note 15)..." class="w-full bg-brandDark border border-brandGold/30 text-white rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brandGold placeholder-gray-500"/>
-        <i class="fa-solid fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+    <!-- Filtro Categorías / Marcas -->
+    <div class="w-full overflow-x-auto scrollbar-hide py-1">
+      <div class="flex gap-2 min-w-max">
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Todos los Celulares</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Samsung</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Motorola</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-amber-500 text-black font-semibold">Xiaomi / Redmi</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Honor</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Tecno</button>
+        <button class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-amber-500 hover:text-black transition">Infinix</button>
       </div>
     </div>
 
-    <!-- CATALOGO GRID -->
-    <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <!-- Los productos se cargarán dinámicamente con JS -->
+    <!-- Buscador -->
+    <div class="relative w-full">
+      <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+      <input type="text" placeholder="Buscar equipo (ej. A17, Note 15)..." class="w-full bg-[#1e293b]/70 border border-gray-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500" />
+    </div>
+
+    <!-- Lista de Equipos -->
+    <div class="w-full space-y-3">
+
+      <!-- Producto 1 -->
+      <div class="bg-[#111827] border border-gray-800/90 rounded-2xl p-3.5 shadow-md flex flex-col justify-between space-y-3">
+        <div class="flex items-start justify-between">
+          <span class="bg-amber-500/10 text-amber-400 text-[10px] font-extrabold px-2 py-0.5 rounded tracking-wide uppercase">XIAOMI</span>
+          <span class="text-emerald-400 text-[10px] font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-[9px]"></i> Aprobación Rápida
+          </span>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white">Redmi A7 Pro 64GB</h3>
+          <p class="text-[11px] text-gray-400 mt-0.5">4GB RAM | 64GB | Pantalla 6.7" | Cámara 50MP | 5.000mAh</p>
+        </div>
+
+        <div class="bg-[#0f172a] p-2.5 rounded-xl flex items-center justify-between border border-gray-800/60">
+          <div>
+            <p class="text-[10px] text-gray-400">Cuota Inicial PayJoy:</p>
+            <p class="text-[10px] text-gray-500">Precio Contado:</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-extrabold text-amber-400">$150.000</p>
+            <p class="text-[11px] font-medium text-gray-300">$575.000</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/573157044653?text=Hola,%20estoy%20interesado%20en%20financiar%20el%20Redmi%20A7%20Pro%2064GB" target="_blank" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-amber-500/10 active:scale-[0.98] transition">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          SOLICITAR CRÉDITO
+        </a>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="bg-[#111827] border border-gray-800/90 rounded-2xl p-3.5 shadow-md flex flex-col justify-between space-y-3">
+        <div class="flex items-start justify-between">
+          <span class="bg-amber-500/10 text-amber-400 text-[10px] font-extrabold px-2 py-0.5 rounded tracking-wide uppercase">XIAOMI</span>
+          <span class="text-emerald-400 text-[10px] font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-[9px]"></i> Aprobación Rápida
+          </span>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white">Redmi A7 Pro 128GB</h3>
+          <p class="text-[11px] text-gray-400 mt-0.5">4GB RAM | 128GB | Pantalla 6.7" | Cámara 50MP | 5.000mAh</p>
+        </div>
+
+        <div class="bg-[#0f172a] p-2.5 rounded-xl flex items-center justify-between border border-gray-800/60">
+          <div>
+            <p class="text-[10px] text-gray-400">Cuota Inicial PayJoy:</p>
+            <p class="text-[10px] text-gray-500">Precio Contado:</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-extrabold text-amber-400">$150.000</p>
+            <p class="text-[11px] font-medium text-gray-300">$615.000</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/573157044653?text=Hola,%20estoy%20interesado%20en%20financiar%20el%20Redmi%20A7%20Pro%20128GB" target="_blank" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-amber-500/10 active:scale-[0.98] transition">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          SOLICITAR CRÉDITO
+        </a>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="bg-[#111827] border border-gray-800/90 rounded-2xl p-3.5 shadow-md flex flex-col justify-between space-y-3">
+        <div class="flex items-start justify-between">
+          <span class="bg-amber-500/10 text-amber-400 text-[10px] font-extrabold px-2 py-0.5 rounded tracking-wide uppercase">XIAOMI</span>
+          <span class="text-emerald-400 text-[10px] font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-[9px]"></i> Aprobación Rápida
+          </span>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold text-white">Redmi 15C 128GB</h3>
+          <p class="text-[11px] text-gray-400 mt-0.5">4GB RAM | 128GB | Pantalla 6.9" | Cámara 50MP | 6.000mAh</p>
+        </div>
+
+        <div class="bg-[#0f172a] p-2.5 rounded-xl flex items-center justify-between border border-gray-800/60">
+          <div>
+            <p class="text-[10px] text-gray-400">Cuota Inicial PayJoy:</p>
+            <p class="text-[10px] text-gray-500">Precio Contado:</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-extrabold text-amber-400">$150.000</p>
+            <p class="text-[11px] font-medium text-gray-300">$650.000</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/573157044653?text=Hola,%20estoy%20interesado%20en%20financiar%20el%20Redmi%2015C%20128GB" target="_blank" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-amber-500/10 active:scale-[0.98] transition">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          SOLICITAR CRÉDITO
+        </a>
+      </div>
+
     </div>
   </main>
 
-  <!-- MODAL DE SOLICITUD PAYJOY -->
-  <div id="requestModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="glass-card max-w-md w-full rounded-2xl p-6 relative border border-brandGold/50 text-left">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="flex items-center space-x-3 mb-4">
-        <div class="w-10 h-10 rounded-full bg-brandGold/20 border border-brandGold flex items-center justify-center text-brandGold">
-          <i class="fa-solid fa-mobile-screen-button text-lg"></i>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold text-white">Solicitar Crédito PayJoy</h3>
-          <p class="text-xs text-brandLightBlue" id="modalProductName">Equipo Seleccionado</p>
-        </div>
-      </div>
-
-      <p class="text-xs text-gray-300 mb-4 bg-brandDark p-3 rounded-lg border border-brandGold/20">
-        Completa tus datos básicos para preparar el mensaje directo a nuestro equipo por WhatsApp. Te enviaremos el enlace oficial de pre-aprobación al instante.
-      </p>
-
-      <form id="payjoyForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Nombre Completo *</label>
-          <input type="text" id="clientName" required placeholder="Ej. Juan Pérez" class="w-full bg-brandDark border border-brandGold/30 text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brandGold"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-gray-300 mb-1">Número de Cédula *</label>
-          <input type="number" id="clientId" required placeholder="Ej. 1098765432" class="w-full bg-brandDark border border-brandGold/30 text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brandGold"/>
-        </div>
-
-        <div class="p-3 bg-brandDark rounded-lg border border-brandGold/20">
-          <div class="flex justify-between text-xs mb-1">
-            <span class="text-gray-400">Cuota Inicial Estimada:</span>
-            <span id="modalProductInicial" class="font-bold text-brandGold">$0</span>
-          </div>
-          <div class="flex justify-between text-xs">
-            <span class="text-gray-400">Precio de Contado:</span>
-            <span id="modalProductContado" class="text-gray-300">$0</span>
-          </div>
-        </div>
-
-        <button type="submit" class="w-full gold-button text-brandDark font-extrabold py-3 px-4 rounded-xl shadow-lg flex items-center justify-center space-x-2 text-sm hover:scale-[1.02] transition-all">
-          <i class="fab fa-whatsapp text-lg"></i>
-          <span>Enviar Solicitud a WhatsApp</span>
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="bg-brandDark border-t border-brandGold/20 mt-12 py-8 text-center text-xs text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 space-y-3">
-      <p class="font-bold text-white text-sm">CANELA STORE - SERVICIO TÉCNICO & CRÉDITO</p>
-      <p>WhatsApp Comercial: <a href="https://wa.me/573105382013" class="text-brandGold hover:underline">+57 310 538 2013</a></p>
-      <p class="text-gray-500">© 2026 Canela Store. Todos los derechos reservados. Financiamiento sujeto a aprobación por PayJoy.</p>
-    </div>
+  <footer class="w-full text-center py-4 border-t border-gray-800 text-[11px] text-gray-500">
+    &copy; Canela Store - Todos los derechos reservados
   </footer>
 
-  <!-- SCRIPT BASE DE DATOS Y LOGICA -->
-  <script>
-    const products = [
-      // SAMSUNG
-      { brand: "SAMSUNG", name: "Samsung A07 64GB", specs: "4GB RAM | 64GB | Pantalla 6.7\" | Cámara 50MP | 5.000mAh", contado: "$575.000", inicial: "$150.000" },
-      { brand: "SAMSUNG", name: "Samsung A07 128GB 6GB", specs: "6GB RAM | 128GB | Pantalla 6.7\" | Cámara 50MP | 5.000mAh", contado: "$640.000", inicial: "$150.000" },
-      { brand: "SAMSUNG", name: "Samsung A17 128GB 4GB", specs: "4GB RAM | 128GB | Super AMOLED 6.7\" | Cámara 50MP | 5.000mAh", contado: "$750.000", inicial: "$220.000" },
-      { brand: "SAMSUNG", name: "Samsung A17 256GB 8GB", specs: "8GB RAM | 256GB | Super AMOLED 6.7\" | Cámara 50MP | 5.000mAh", contado: "$900.000", inicial: "$220.000" },
-      { brand: "SAMSUNG", name: "Samsung A17 256GB 5G", specs: "8GB RAM | 256GB | Super AMOLED 6.7\" | 5G | Cámara 50MP", contado: "$940.000", inicial: "$220.000" },
-      { brand: "SAMSUNG", name: "Samsung A26 256GB 5G", specs: "8GB RAM | 256GB | Super AMOLED 6.7\" 120Hz | 5G | Cámara 50MP OIS", contado: "$1.075.000", inicial: "$320.000" },
-      { brand: "SAMSUNG", name: "Samsung M55 256GB 5G", specs: "8GB RAM | 256GB | Super AMOLED+ 6.7\" 120Hz | 5G | Cámara 50MP OIS", contado: "$1.050.000", inicial: "$320.000" },
-      { brand: "SAMSUNG", name: "Samsung A37 5G 128GB", specs: "8GB RAM | 128GB | Super AMOLED 6.7\" 120Hz | 5G | Cámara 50MP", contado: "$1.200.000", inicial: "$320.000" },
-      { brand: "SAMSUNG", name: "Samsung A37 5G 256GB", specs: "8GB RAM | 256GB | Super AMOLED 6.7\" 120Hz | 5G | Cámara 50MP", contado: "$1.400.000", inicial: "$320.000" },
-      { brand: "SAMSUNG", name: "Samsung A57 5G 128GB", specs: "8GB RAM | 128GB | Super AMOLED 6.7\" 120Hz | 5G | Cámara 50MP", contado: "$1.530.000", inicial: "$320.000" },
-      { brand: "SAMSUNG", name: "Samsung A57 5G 256GB", specs: "8GB RAM | 256GB | Super AMOLED 6.7\" 120Hz | 5G | Cámara 50MP", contado: "$1.900.000", inicial: "$450.000" },
-
-      // MOTOROLA
-      { brand: "MOTOROLA", name: "Moto E40", specs: "4GB RAM | 64GB | Pantalla 6.5\" 90Hz | Cámara 48MP | 5.000mAh", contado: "$540.000", inicial: "$150.000" },
-      { brand: "MOTOROLA", name: "Moto G06", specs: "4GB RAM | 128GB | Pantalla 6.7\" | Cámara 50MP | 5.200mAh", contado: "$645.000", inicial: "$150.000" },
-      { brand: "MOTOROLA", name: "Moto G06 256GB", specs: "4GB RAM | 256GB | Pantalla 6.7\" | Cámara 50MP | 5.200mAh", contado: "$660.000", inicial: "$150.000" },
-      { brand: "MOTOROLA", name: "Moto G23 128GB", specs: "8GB RAM | 128GB | Pantalla 6.5\" 90Hz | Cámara 50MP | 5.000mAh", contado: "$770.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G31 128GB", specs: "4GB RAM | 128GB | OLED 6.4\" | Cámara 50MP | 5.000mAh", contado: "$750.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G34 256GB", specs: "8GB RAM | 256GB | 5G | Pantalla 6.5\" 120Hz | Cámara 50MP", contado: "$800.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G42 128GB 4GB", specs: "4GB RAM | 128GB | OLED 6.4\" | Cámara 50MP | 5.000mAh", contado: "$900.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G50 128GB", specs: "4GB RAM | 128GB | 5G | Pantalla 6.5\" | Cámara 48MP", contado: "$1.110.000", inicial: "$320.000" },
-      { brand: "MOTOROLA", name: "Moto G17 Power 256GB", specs: "8GB RAM | 256GB | Pantalla 6.7\" | Cámara 50MP | Batería Alta Capacidad", contado: "$840.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G71", specs: "8GB RAM | 128GB | 5G | OLED 6.4\" | Cámara 50MP | 5.000mAh", contado: "$900.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G72 128GB", specs: "8GB RAM | 128GB | pOLED 6.55\" 120Hz | Cámara 108MP", contado: "$800.000", inicial: "$220.000" },
-      { brand: "MOTOROLA", name: "Moto G85 512GB", specs: "12GB RAM | 512GB | pOLED 6.67\" 120Hz | Cámara 50MP OIS", contado: "$1.130.000", inicial: "$320.000" },
-      { brand: "MOTOROLA", name: "Moto Edge 60 Fusion", specs: "8GB RAM | 256GB | pOLED 6.67\" | 5G | Cámara 50MP OIS", contado: "$1.250.000", inicial: "$320.000" },
-
-      // XIAOMI / REDMI
-      { brand: "XIAOMI", name: "Redmi A7 Pro 64GB", specs: "4GB RAM | 64GB | Pantalla 6.7\" | Cámara 50MP | 5.000mAh", contado: "$575.000", inicial: "$150.000" },
-      { brand: "XIAOMI", name: "Redmi A7 Pro 128GB", specs: "4GB RAM | 128GB | Pantalla 6.7\" | Cámara 50MP | 5.000mAh", contado: "$615.000", inicial: "$150.000" },
-      { brand: "XIAOMI", name: "Redmi 15C 128GB", specs: "4GB RAM | 128GB | Pantalla 6.9\" | Cámara 50MP | 6.000mAh", contado: "$660.000", inicial: "$150.000" },
-      { brand: "XIAOMI", name: "Redmi 15C 256GB 4G", specs: "4GB RAM | 256GB | Pantalla 6.9\" | Cámara 50MP | 6.000mAh", contado: "$705.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 15C 256GB 5G", specs: "4GB RAM | 256GB | 5G | Pantalla 6.9\" | Cámara 50MP | 6.000mAh", contado: "$710.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 15C 256GB 8GB", specs: "8GB RAM | 256GB | Pantalla 6.9\" | Cámara 50MP | 6.000mAh", contado: "$770.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 15 128GB", specs: "6GB RAM | 128GB | Pantalla 6.9\" 144Hz | Cámara 50MP | 7.000mAh", contado: "$765.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 15 256GB", specs: "8GB RAM | 256GB | Pantalla 6.9\" 144Hz | Cámara 50MP | 7.000mAh", contado: "$870.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 17 128GB", specs: "6GB RAM | 128GB | Pantalla 120Hz | Cámara 50MP | Alta Batería", contado: "$780.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 17 256GB 4GB", specs: "4GB RAM | 256GB | Pantalla 120Hz | Cámara 50MP | Alta Batería", contado: "$880.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi 17 256GB 6GB", specs: "6GB RAM | 256GB | Pantalla 120Hz | Cámara 50MP | Alta Batería", contado: "$940.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi Note 10 Pro 128GB", specs: "6GB RAM | 128GB | AMOLED 6.67\" 120Hz | Cámara 108MP", contado: "$920.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi Note 15 128GB", specs: "8GB RAM | 128GB | AMOLED 6.67\" | Cámara 108MP", contado: "$870.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi Note 15 256GB", specs: "8GB RAM | 256GB | AMOLED 6.67\" | Cámara 108MP", contado: "$950.000", inicial: "$220.000" },
-      { brand: "XIAOMI", name: "Redmi Note 15 Pro 4G", specs: "8GB RAM | 256GB | AMOLED | Cámara 200MP", contado: "$1.130.000", inicial: "$320.000" },
-      { brand: "XIAOMI", name: "Redmi Note 14 Pro 5G 512GB", specs: "12GB RAM | 512GB | AMOLED 6.67\" 120Hz | 5G | Cámara 200MP", contado: "$1.410.000", inicial: "$320.000" },
-      { brand: "XIAOMI", name: "Redmi Note 15 Pro+ 512GB", specs: "12GB RAM | 512GB | AMOLED 120Hz | 5G | Cámara 200MP", contado: "$1.920.000", inicial: "$450.000" },
-      { brand: "XIAOMI", name: "Xiaomi 17T 512GB", specs: "12GB RAM | 512GB | AMOLED 120Hz | 5G | Alta Gama", contado: "$2.650.000", inicial: "$450.000" },
-
-      // HONOR
-      { brand: "HONOR", name: "Honor X7B 256GB", specs: "8GB RAM | 256GB | Pantalla 6.8\" 90Hz | Cámara 108MP | 6.000mAh", contado: "$890.000", inicial: "$220.000" },
-      { brand: "HONOR", name: "Honor X8B", specs: "8GB RAM | 256GB | AMOLED 6.7\" | Cámara 108MP | 4.500mAh", contado: "$1.100.000", inicial: "$320.000" },
-      { brand: "HONOR", name: "Honor X8C", specs: "8GB RAM | 256GB | AMOLED 6.7\" 120Hz | Cámara 108MP | 5.000mAh", contado: "$1.100.000", inicial: "$320.000" },
-      { brand: "HONOR", name: "Honor 200 256GB", specs: "12GB RAM | 256GB | OLED 6.7\" 120Hz | Cámara 50MP+50MP", contado: "$2.050.000", inicial: "$450.000" },
-
-      // TCL
-      { brand: "TCL", name: "TCL 256GB", specs: "8GB RAM | 256GB | Pantalla 6.7\" | Cámara 50MP | 5.000mAh", contado: "$580.000", inicial: "$150.000" },
-
-      // TECNO
-      { brand: "TECNO", name: "Tecno Spark 8C 128GB", specs: "4GB RAM | 128GB | Pantalla 6.6\" 90Hz | Cámara 13MP", contado: "$550.000", inicial: "$150.000" },
-      { brand: "TECNO", name: "Tecno Spark GO3 128GB", specs: "4GB RAM | 128GB | Pantalla Gran Formato | Cámara 13MP", contado: "$635.000", inicial: "$150.000" },
-      { brand: "TECNO", name: "Tecno Spark 50 256GB 4GB", specs: "4GB RAM | 256GB | Pantalla 120Hz | Cámara 50MP", contado: "$810.000", inicial: "$220.000" },
-      { brand: "TECNO", name: "Tecno Spark 10 Pro", specs: "8GB RAM | 256GB | Pantalla 6.78\" 90Hz | Cámara 50MP", contado: "$750.000", inicial: "$220.000" },
-      { brand: "TECNO", name: "Tecno Spark 50 5G 256GB", specs: "8GB RAM | 256GB | 5G | Pantalla 120Hz | Cámara 50MP", contado: "$1.060.000", inicial: "$320.000" },
-      { brand: "TECNO", name: "Tecno Pova Curve 2 5G", specs: "8GB RAM | 256GB | 5G | Pantalla Curva | Cámara 50MP", contado: "$1.230.000", inicial: "$320.000" },
-      { brand: "TECNO", name: "Tecno Camon 50 Ultra 5G", specs: "12GB RAM | 256GB | 5G | AMOLED | Cámara Alta Res", contado: "$1.420.000", inicial: "$320.000" },
-
-      // INFINIX
-      { brand: "INFINIX", name: "Infinix Smart 10 128GB", specs: "4GB RAM | 128GB | Pantalla 6.67\" | Cámara 8MP | 5.000mAh", contado: "$590.000", inicial: "$150.000" },
-      { brand: "INFINIX", name: "Infinix Smart 20 64GB", specs: "4GB RAM | 64GB | Pantalla 6.78\" | Cámara 50MP | 5.000mAh", contado: "$655.000", inicial: "$150.000" },
-      { brand: "INFINIX", name: "Infinix Smart 20 128GB", specs: "4GB RAM | 128GB | Pantalla 6.78\" | Cámara 50MP | 5.000mAh", contado: "Consultar", inicial: "Pendiente" },
-      { brand: "INFINIX", name: "Infinix Hot 70 256GB", specs: "8GB RAM | 256GB | Pantalla 6.78\" | Cámara 50MP", contado: "$860.000", inicial: "$220.000" },
-      { brand: "INFINIX", name: "Infinix Hot 70 128GB", specs: "8GB RAM | 128GB | Pantalla 6.78\" | Cámara 50MP", contado: "$830.000", inicial: "$220.000" },
-      { brand: "INFINIX", name: "Infinix Note Edge 256GB 5G", specs: "8GB RAM | 256GB | 5G | AMOLED Curva | Cámara 50MP", contado: "$1.240.000", inicial: "$320.000" },
-      { brand: "INFINIX", name: "Infinix Note 60 Pro 256GB", specs: "12GB RAM | 256GB | AMOLED 144Hz | Cámara Alta Res", contado: "$1.650.000", inicial: "$320.000" },
-      { brand: "INFINIX", name: "Infinix Note 60 Pro Pininfarina", specs: "12GB RAM | 256GB | 5G | AMOLED | Edición Especial", contado: "$1.750.000", inicial: "$450.000" }
-    ];
-
-    let currentBrand = "TODOS";
-    let selectedProduct = null;
-
-    // RENDER CATALOG
-    function renderCatalog() {
-      const grid = document.getElementById("catalog-grid");
-      grid.innerHTML = "";
-
-      const query = document.getElementById("searchInput").value.toLowerCase();
-
-      const filtered = products.filter(p => {
-        const matchesBrand = currentBrand === "TODOS" || p.brand === currentBrand;
-        const matchesQuery = p.name.toLowerCase().includes(query) || p.specs.toLowerCase().includes(query);
-        return matchesBrand && matchesQuery;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">No se encontraron celulares disponibles en esta categoría.</div>`;
-        return;
-      }
-
-      filtered.forEach((product) => {
-        const card = document.createElement("div");
-        card.className = "glass-card rounded-2xl p-5 flex flex-col justify-between transition-all duration-300";
-
-        card.innerHTML = `
-          <div>
-            <div class="flex justify-between items-start mb-3">
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md bg-brandGold/20 text-brandGold border border-brandGold/30 tracking-wider">
-                ${product.brand}
-              </span>
-              <span class="text-xs text-green-400 font-semibold flex items-center gap-1">
-                <i class="fa-solid fa-bolt text-[10px]"></i> Aprobación Rápida
-              </span>
-            </div>
-
-            <h3 class="text-lg font-bold text-white mb-1 leading-snug">${product.name}</h3>
-            <p class="text-xs text-gray-400 mb-4 leading-relaxed">${product.specs}</p>
-          </div>
-
-          <div>
-            <div class="bg-brandDark/90 rounded-xl p-3 mb-4 border border-brandGold/20">
-              <div class="flex justify-between items-center mb-1">
-                <span class="text-xs text-gray-400">Cuota Inicial PayJoy:</span>
-                <span class="text-base font-extrabold text-brandGold">${product.inicial}</span>
-              </div>
-              <div class="flex justify-between items-center text-xs">
-                <span class="text-gray-500">Precio Contado:</span>
-                <span class="text-gray-300 font-medium">${product.contado}</span>
-              </div>
-            </div>
-
-            <button onclick='openModal(${JSON.stringify(product)})' class="w-full gold-button text-brandDark font-extrabold py-2.5 px-4 rounded-xl shadow-md flex items-center justify-center space-x-2 text-xs uppercase tracking-wider hover:scale-[1.02] transition-all">
-              <i class="fab fa-whatsapp text-base"></i>
-              <span>Solicitar Crédito</span>
-            </button>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    // FILTER BRAND
-    function filterBrand(brand) {
-      currentBrand = brand;
-      document.querySelectorAll(".brand-btn").forEach(btn => {
-        btn.classList.remove("bg-brandGold", "text-brandDark");
-        btn.classList.add("bg-brandDark", "text-gray-300");
-      });
-
-      event.target.classList.remove("bg-brandDark", "text-gray-300");
-      event.target.classList.add("bg-brandGold", "text-brandDark");
-
-      renderCatalog();
-    }
-
-    // SEARCH
-    function searchProducts() {
-      renderCatalog();
-    }
-
-    // MODAL LOGIC
-    function openModal(product) {
-      selectedProduct = product;
-      document.getElementById("modalProductName").innerText = product.name;
-      document.getElementById("modalProductInicial").innerText = product.inicial;
-      document.getElementById("modalProductContado").innerText = product.contado;
-      document.getElementById("requestModal").classList.remove("hidden");
-    }
-
-    function closeModal() {
-      document.getElementById("requestModal").classList.add("hidden");
-      document.getElementById("payjoyForm").reset();
-    }
-
-    // FORM SUBMIT -> REDIRECT TO WHATSAPP
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById("clientName").value.trim();
-      const idNumber = document.getElementById("clientId").value.trim();
-      const phone = "573105382013";
-
-      const message = `Hola *Canela Store*, quiero solicitar la pre-aprobación de mi crédito *PayJoy*.%0A%0A` +
-                      `📱 *Equipo:* ${selectedProduct.name}%0A` +
-                      `💰 *Inicial Estimada:* ${selectedProduct.inicial}%0A` +
-                      `💵 *Precio Contado:* ${selectedProduct.contado}%0A%0A` +
-                      `📋 *Datos del Solicitante:*%0A` +
-                      `• *Nombre:* ${name}%0A` +
-                      `• *Cédula:* ${idNumber}%0A%0A` +
-                      `Quedo atento al enlace para continuar la aprobación.`;
-
-      const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
-      window.open(whatsappUrl, "_blank");
-      closeModal();
-    }
-
-    // INITIAL RENDER
-    renderCatalog();
-  </script>
 </body>
 </html>
+```
